@@ -41,6 +41,7 @@ object_event_add(core, ev_step, 0, '
 object_event_add(core, ev_mouse, ev_global_left_release, '
 	//Build
 	if global.toput != noone && !global.playing && mouse_x > 0 && global.selected_mode == 0
+	&& timedown < 0.2
 	{
 		boj = instance_create(mouse_x, mouse_y, global.toput)
 		with(boj) {
@@ -52,11 +53,18 @@ object_event_add(core, ev_mouse, ev_global_left_release, '
 	}
 
 	if dragging {
+		timedown = 0
 		dragging = false
 	}
 ')
 
+object_event_add(core, ev_mouse, ev_global_left_button, '
+	timedown+=0.05
+')
+
 object_event_add(core, ev_mouse, ev_global_left_press, '
+	down_x = mouse_x
+	down_y = mouse_y
 	dragging=true
 	drag_x=mouse_x
 	drag_y=mouse_y
