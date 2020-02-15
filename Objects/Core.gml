@@ -22,7 +22,6 @@ global.levelspeed=1
 
 global.wallx = 0
 room_set_width(rm_editor, 5000)
-alarm[1] = 60
 
 ')
 
