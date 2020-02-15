@@ -27,8 +27,9 @@ alarm[1] = 60
 ')
 
 object_event_add(core, ev_mouse, ev_global_left_release, '
-
 	//Build
+	if global.toput != noone && !global.playing && mouse_x > 0 && global.selected_mode == 0
+	{
 		boj = instance_create(mouse_x, mouse_y, global.toput)
 		with(boj) {
 			move_snap(30.5, 30.5)
@@ -36,4 +37,9 @@ object_event_add(core, ev_mouse, ev_global_left_release, '
 		if boj.x > global.wallx {
 			global.wallx = boj.x
 		}
+	}
+')
+
+object_event_add(core, ev_draw, 0, '
+	execute_file("Mods/Editor/Scripts/scr_grid.gml", 61, 61)
 ')
