@@ -23,6 +23,8 @@ global.levelspeed=1
 global.wallx = 0
 room_set_width(rm_editor, 5000)
 
+alarm[0] = 60
+
 ')
 
 object_event_add(core, ev_mouse, ev_global_left_release, '
@@ -41,4 +43,11 @@ object_event_add(core, ev_mouse, ev_global_left_release, '
 
 object_event_add(core, ev_draw, 0, '
 	execute_file("Mods/Editor/Scripts/scr_grid.gml", 61, 61)
+')
+
+object_event_add(core, ev_alarm, 0, '
+	if room_width < global.wallx + 600 {
+		room_width = global.wallx + 600
+	}
+	alarm[0] = 60
 ')
