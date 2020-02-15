@@ -1,7 +1,7 @@
 globalvar rm_editor;
 rm_editor = room_add()
 
-room_set_width(rm_editor, 1280)
+room_set_width(rm_editor, 5000)
 room_set_height(rm_editor, 773)
 room_set_caption(rm_editor, "GeometryMod Editor")
 

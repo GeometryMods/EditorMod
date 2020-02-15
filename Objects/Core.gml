@@ -27,6 +27,17 @@ alarm[0] = 60
 
 ')
 
+object_event_add(core, ev_step, 0, '
+	if dragging {
+
+		if !global.playing {
+			view_xview = view_xview + drag_x - mouse_x
+			view_yview = view_yview + drag_y - mouse_y
+		}
+
+	}
+')
+
 object_event_add(core, ev_mouse, ev_global_left_release, '
 	//Build
 	if global.toput != noone && !global.playing && mouse_x > 0 && global.selected_mode == 0
@@ -39,6 +50,16 @@ object_event_add(core, ev_mouse, ev_global_left_release, '
 			global.wallx = boj.x
 		}
 	}
+
+	if dragging {
+		dragging = false
+	}
+')
+
+object_event_add(core, ev_mouse, ev_global_left_press, '
+	dragging=true
+	drag_x=mouse_x
+	drag_y=mouse_y
 ')
 
 object_event_add(core, ev_draw, 0, '
@@ -47,7 +68,7 @@ object_event_add(core, ev_draw, 0, '
 
 object_event_add(core, ev_alarm, 0, '
 	if room_width < global.wallx + 600 {
-		room_width = global.wallx + 600
+		room_set_width(rm_editor, global.wallx + 600)
 	}
 	alarm[0] = 60
 ')
