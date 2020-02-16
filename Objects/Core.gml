@@ -9,7 +9,7 @@ drag_y=0
 timedown=0
 dragging=false
 
-global.toput=obj_wall
+global.toput=noone
 global.selected_obj=noone
 global.selected_mode=0 //0 - build, 1 - edit, 2 - delete
 global.playing = false
@@ -72,6 +72,7 @@ object_event_add(core, ev_mouse, ev_global_left_press, '
 
 object_event_add(core, ev_draw, 0, '
 	execute_file("Mods/Editor/Scripts/scr_grid.gml", 61, 61)
+	draw_sprite_ext(spr_editBg, 0, view_xview, (view_yview+(sprite_get_height(spr_editBg))), 1, 0.5, 0, c_white, 1)
 ')
 
 object_event_add(core, ev_alarm, 0, '

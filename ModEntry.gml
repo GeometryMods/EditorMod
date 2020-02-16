@@ -1,3 +1,4 @@
+execute_string(get_external("Mods/Editor/ModInit.gml"))
 execute_string(get_external("Mods/Editor/Classes/EditorRoom.gml"))
 execute_string(get_external("Mods/Editor/Objects/Core.gml"))
 
