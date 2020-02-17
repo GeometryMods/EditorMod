@@ -39,14 +39,28 @@ for(i = 0; i < global.objects; i+=1) {
 ')
 
 object_event_add(core, ev_step, 0, '
-	if dragging {
 
+	if dragging {
 		if !global.playing {
 			view_xview = view_xview + drag_x - mouse_x
 			view_yview = view_yview + drag_y - mouse_y
 		}
+	}
+
+	if keyboard_check_pressed(vk_enter) {
+
+		//TODO: Change this to the global.playing var
+
+		if !instance_exists(obj_player) {
+			instance_create(31, obj_ground1.y - 60, obj_player)
+		} else {
+			with(obj_player) {
+				instance_destroy()
+			}
+		}
 
 	}
+
 ')
 
 object_event_add(core, ev_mouse, ev_global_left_release, '
