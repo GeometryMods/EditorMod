@@ -25,6 +25,16 @@ room_set_width(rm_editor, 5000)
 
 alarm[0] = 60
 
+plusxx = 200
+plusyy = 627
+
+for(i = 0; i < global.objects; i+=1) {
+	obj = instance_create(0,0,obj_ed_obj)
+	obj.plusx = plusxx
+	obj.plusy = plusyy
+	obj.obj = global.object[i]
+	plusxx += ((31 * 2) + 10)
+}
 ')
 
 object_event_add(core, ev_step, 0, '
@@ -41,7 +51,7 @@ object_event_add(core, ev_step, 0, '
 object_event_add(core, ev_mouse, ev_global_left_release, '
 	//Build
 	if global.toput != noone && !global.playing && mouse_x > 0 && global.selected_mode == 0
-	&& timedown < 0.2
+	&& timedown < 0.2 && !position_meeting(mouse_x, mouse_y, undel)
 	{
 		boj = instance_create(mouse_x, mouse_y, global.toput)
 		with(boj) {
