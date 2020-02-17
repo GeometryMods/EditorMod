@@ -33,6 +33,7 @@ for(i = 0; i < global.objects; i+=1) {
 	obj.plusx = plusxx
 	obj.plusy = plusyy
 	obj.obj = global.object[i]
+	obj.depth = -2
 	plusxx += ((31 * 2) + 10)
 }
 ')
