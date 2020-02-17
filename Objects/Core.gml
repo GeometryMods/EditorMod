@@ -2,6 +2,9 @@ globalvar core;
 core = object_add()
 
 object_event_add(core, ev_create, 0, '
+
+room_speed = 60
+
 downx=0
 downy=0
 drag_x=0
@@ -36,6 +39,7 @@ for(i = 0; i < global.objects; i+=1) {
 	obj.depth = -2
 	plusxx += ((31 * 2) + 10)
 }
+
 ')
 
 object_event_add(core, ev_step, 0, '
@@ -52,8 +56,14 @@ object_event_add(core, ev_step, 0, '
 		//TODO: Change this to the global.playing var
 
 		if !instance_exists(obj_player) {
+			visible = false
 			instance_create(31, obj_ground1.y - 60, obj_player)
+			instance_create(0,0,obj_camera)
 		} else {
+			visible = true
+			with(obj_camera) {
+				instance_destroy()
+			}
 			with(obj_player) {
 				instance_destroy()
 			}
