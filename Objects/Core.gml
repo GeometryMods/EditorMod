@@ -54,25 +54,11 @@ object_event_add(core, ev_step, 0, '
 	}
 
 	if keyboard_check_pressed(vk_enter) {
+		global.playing = !global.playing
 
-		//TODO: Change this to the global.playing var
-
-		if !instance_exists(obj_player) {
-			visible = false
-			obj_ed_obj.visible = false
-			instance_create(31, obj_ground1.y - 60, obj_player)
-			instance_create(0,0,obj_camera)
-		} else {
-			visible = true
-			obj_ed_obj.visible = true
-			with(obj_camera) {
-				instance_destroy()
-			}
-			with(obj_player) {
-				instance_destroy()
-			}
+		if !instance_exists(_player_prev) {
+			instance_create(31, global.g1y-31, _player_prev)
 		}
-
 	}
 
 ')
