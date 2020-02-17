@@ -40,6 +40,8 @@ for(i = 0; i < global.objects; i+=1) {
 	plusxx += ((31 * 2) + 10)
 }
 
+instance_create(31, global.g1y-31, _player_prev)
+
 ')
 
 object_event_add(core, ev_step, 0, '
