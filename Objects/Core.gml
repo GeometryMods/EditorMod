@@ -57,10 +57,12 @@ object_event_add(core, ev_step, 0, '
 
 		if !instance_exists(obj_player) {
 			visible = false
+			obj_ed_obj.visible = false
 			instance_create(31, obj_ground1.y - 60, obj_player)
 			instance_create(0,0,obj_camera)
 		} else {
 			visible = true
+			obj_ed_obj.visible = true
 			with(obj_camera) {
 				instance_destroy()
 			}
