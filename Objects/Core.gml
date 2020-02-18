@@ -3,6 +3,8 @@ core = object_add()
 
 object_event_add(core, ev_create, 0, '
 
+instance_create(0, 0, obj_camera)
+
 room_speed = 60
 
 downx=0
@@ -56,9 +58,10 @@ object_event_add(core, ev_step, 0, '
 	if keyboard_check_pressed(vk_enter) {
 		global.playing = !global.playing
 
-		if !instance_exists(_player_prev) {
-			instance_create(31, global.g1y-31, _player_prev)
-		}
+		instance_create(31, global.g1y - 31, _player_prev)
+
+		visible = !visible
+		obj_ed_obj.visible = visible
 	}
 
 ')
