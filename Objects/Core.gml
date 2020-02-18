@@ -59,9 +59,18 @@ object_event_add(core, ev_step, 0, '
 		global.playing = !global.playing
 
 		instance_create(31, global.g1y - 31, _player_prev)
+	}
 
-		visible = !visible
-		obj_ed_obj.visible = visible
+	if global.playing {
+		if visible {
+			visible = false
+			obj_ed_obj.visible = visible
+		}
+	} else {
+		if !visible {
+			visible = true
+			obj_ed_obj.visible = visible
+		}
 	}
 
 ')
