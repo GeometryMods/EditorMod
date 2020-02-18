@@ -69,7 +69,7 @@ object_event_add(core, ev_step, 0, '
 object_event_add(core, ev_mouse, ev_global_left_release, '
 	//Build
 	if global.toput != noone && !global.playing && mouse_x > 0 && global.selected_mode == 0
-	&& timedown < 0.2 && !position_meeting(mouse_x, mouse_y, undel)
+	&& timedown < 0.3 && !position_meeting(mouse_x, mouse_y, undel)
 	{
 		boj = instance_create(mouse_x, mouse_y, global.toput)
 		with(boj) {
