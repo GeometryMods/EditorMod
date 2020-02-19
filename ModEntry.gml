@@ -6,6 +6,10 @@ execute_string(get_external("Mods/Editor/Classes/EditorRoom.gml"))
 execute_string(get_external("Mods/Editor/Classes/ObjectSelector.gml"))
 
 execute_string(get_external("Mods/Editor/Objects/PlayerPreview.gml"))
+
+execute_string(get_external("Mods/Editor/Objects/Buttons/EditorLGUIButtons.gml"))
+
+
 execute_string(get_external("Mods/Editor/Objects/Core.gml"))
 
 

@@ -3,6 +3,7 @@ core = object_add()
 
 object_event_add(core, ev_create, 0, '
 
+depth = -1
 instance_create(0, 0, obj_camera)
 
 room_speed = 60
@@ -31,7 +32,11 @@ room_set_width(rm_editor, 5000)
 alarm[0] = 60
 
 plusxx = 200
-plusyy = 627
+plusyy = 670
+
+buildBtn = instance_create(74, 627, obj_buildBtn)
+buildBtn.plusx = 74
+buildBtn.plusy = 670
 
 for(i = 0; i < global.objects; i+=1) {
 	obj = instance_create(0,0,obj_ed_obj)
@@ -109,7 +114,7 @@ object_event_add(core, ev_mouse, ev_global_left_press, '
 
 object_event_add(core, ev_draw, 0, '
 	execute_file("Mods/Editor/Scripts/scr_grid.gml", 61, 61)
-	draw_sprite_ext(spr_editBg, 0, view_xview, (view_yview+(sprite_get_height(spr_editBg))), 1, 0.5, 0, c_white, 1)
+	draw_sprite_ext(spr_editBg, 0, view_xview, (view_yview+(sprite_get_height(spr_editBg)+100)), 1, 0.5, 0, c_white, 1)
 ')
 
 object_event_add(core, ev_alarm, 0, '
