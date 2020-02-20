@@ -12,6 +12,10 @@ obj_buildBtn = object_add()
 obj_editBtn = object_add()
 obj_deleteBtn = object_add()
 
+object_set_parent(obj_buildBtn, undel)
+object_set_parent(obj_editBtn, undel)
+object_set_parent(obj_deleteBtn, undel)
+
 //Lastly, set the objects sprite
 object_set_sprite(obj_buildBtn, edBtn_build0)
 

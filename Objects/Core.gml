@@ -1,6 +1,7 @@
 globalvar core;
 core = object_add()
 
+object_set_parent(core, undel)
 object_event_add(core, ev_create, 0, '
 
 depth = -1
@@ -67,14 +68,12 @@ object_event_add(core, ev_step, 0, '
 	}
 
 	if global.playing {
-		if visible {
-			visible = false
-			obj_ed_obj.visible = visible
+		if undel.visible {
+			undel.visible = false
 		}
 	} else {
-		if !visible {
-			visible = true
-			obj_ed_obj.visible = visible
+		if !undel.visible {
+			undel.visible = true
 		}
 	}
 
