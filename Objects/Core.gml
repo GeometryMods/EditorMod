@@ -95,16 +95,35 @@ object_event_add(core, ev_step, 0, '
 ')
 
 object_event_add(core, ev_mouse, ev_global_left_release, '
-	//Build
-	if global.toput != noone && !global.playing && mouse_x > 0 && global.selected_mode == 0
-	&& timedown < 0.3 && global.toput != object0 && !position_meeting(mouse_x, mouse_y, undel)
+
+	if !global.playing && mouse_x > 0 && timedown < 0.3 && !position_meeting(mouse_x, mouse_y, undel)
 	{
-		boj = instance_create(mouse_x, mouse_y, global.toput)
-		with(boj) {
-			move_snap(30.5, 30.5)
+		//Build
+		if global.toput != noone && global.selected_mode == 0
+		&& global.toput != object0
+		{
+			boj = instance_create(mouse_x, mouse_y, global.toput)
+			with(boj) {
+				move_snap(30.5, 30.5)
+			}
+			if boj.x > global.wallx {
+				global.wallx = boj.x
+			}
 		}
-		if boj.x > global.wallx {
-			global.wallx = boj.x
+
+		//Edit
+		if global.selected_mode == 1 {
+			global.selected_obj = noone
+			
+			with(all) {
+				image_blend = c_white
+			}
+			
+			global.selected_obj = instance_position(mouse_x, mouse_y, all)
+
+			with(global.selected_obj) {
+				image_blend = c_lime
+			}
 		}
 	}
 
