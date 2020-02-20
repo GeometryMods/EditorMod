@@ -5,6 +5,7 @@ object_set_parent(core, undel)
 object_event_add(core, ev_create, 0, '
 
 depth = -1
+global.levelspeed = 0
 instance_create(0, 0, obj_camera)
 
 room_speed = 60
