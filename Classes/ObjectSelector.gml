@@ -36,11 +36,13 @@ object_event_add(obj_ed_obj, ev_draw, 0, '
 
 		scale = 0
 
-		if spr_height > 60 && spr_height < 164 {
+		if spr_height > 60 && spr_height < 62 {
 			scale = .5
-		} else if spr_height > 165 && spr_height < 169 {
-			scale = .19
-		} else if spr_height > 170 && spr_height < 200 {
+		} else if spr_height > 63 && spr_height < 164 {
+			scale = .35
+		} else if spr_height > 165 && spr_height < 170 {
+			scale = .3
+		} else if spr_height > 171 && spr_height < 200 {
 			scale = .22
 		}
 
