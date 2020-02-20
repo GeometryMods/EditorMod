@@ -54,9 +54,12 @@ for(i = 0; i < global.objects; i+=1) {
 	obj.obj = global.object[i]
 	obj.depth = -2
 	plusxx += ((31 * 2) + 10)
-}
 
-instance_create(31, global.g1y-31, _player_prev)
+	if i > 11 && i < 13 {
+		plusyy += 62
+		plusxx = 200
+	}
+}
 
 ')
 
@@ -69,7 +72,7 @@ object_event_add(core, ev_step, 0, '
 		}
 	}
 
-	if keyboard_check_pressed(vk_enter) {
+	if keyboard_check_released(vk_enter) {
 		global.playing = !global.playing
 
 		instance_create(31, global.g1y - 31, _player_prev)
@@ -82,6 +85,9 @@ object_event_add(core, ev_step, 0, '
 	} else {
 		if !undel.visible {
 			undel.visible = true
+			with(_player_prev) {
+				instance_destroy()
+			}
 		}
 	}
 

@@ -34,10 +34,14 @@ object_event_add(obj_ed_obj, ev_draw, 0, '
 		obj_spr = object_get_sprite(obj)
 		spr_height = sprite_get_height(obj_spr)
 
-		if spr_height == 61 {
+		scale = 0
+
+		if spr_height > 60 && spr_height < 164 {
 			scale = .5
-		} else if spr_height >= 165 {
-			scale = .3
+		} else if spr_height > 165 && spr_height < 169 {
+			scale = .19
+		} else if spr_height > 170 && spr_height < 200 {
+			scale = .22
 		}
 
 		draw_sprite_ext(obj_spr, 0, x, y, scale, scale, 0, c_white, 1)
