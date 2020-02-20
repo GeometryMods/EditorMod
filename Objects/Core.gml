@@ -32,12 +32,20 @@ room_set_width(rm_editor, 5000)
 
 alarm[0] = 60
 
+/*
+ * TODO: Move all of this to a different object (or script)
+ */
+
 plusxx = 200
 plusyy = 670
 
 buildBtn = instance_create(74, 627, obj_buildBtn)
 buildBtn.plusx = 74
-buildBtn.plusy = 670
+buildBtn.plusy = 650
+
+editBtn = instance_create(74, 627, obj_editBtn)
+editBtn.plusx = 74
+editBtn.plusy = sprite_get_height(edBtn_edit0) + 650
 
 for(i = 0; i < global.objects; i+=1) {
 	obj = instance_create(0,0,obj_ed_obj)
